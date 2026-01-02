@@ -41,8 +41,8 @@ Calculations validated agaist CPU reference for both forward and backward popoga
 DLPrimitves itself is tested on following devies: 
 
 - AMD rx 6600XT with ROCM drivers, rx560 16cu with AMDGPU-pro drivers
-- Nvidia: GTX 960
-- Intel:  HD 530, UHD 770, Arc A380
+- Nvidia: GTX 960, GT 610
+- Intel:  HD 530, HD 630, UHD 770, Arc A380
 
 
 # Installation
