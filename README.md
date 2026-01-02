@@ -69,16 +69,23 @@ So if something fails. It is either not implemented or it is implemented incorre
 Note: pytorch backend is based on dlprimitives library that actually implements all the operators and
 it is relatively well tested.
 
-If you still want to try: import package `pytorch_ocl`
+If you still want to try: `import pytorch_ocl`
 
-Keep in mind you may have several OpenCL devices. Refer to `clinfo --list` to list
-of the devices and their order. Now instead of calling `something.to('cuda')` you call `something.to('ocl:0')` or 
+Keep in mind you may have several OpenCL devices. On linux systems, refer to `clinfo --list` to list
+your devices and their order. On windows systems, use
+
+    python -c "import pyopencl as cl; [print(f'Platform {i}: {p.name}') or [print(f'  Device {j}: {d.name}') for j,d in enumerate(p.get_devices())] for i,p in enumerate(cl.get_platforms())]"
+
+Now instead of calling `something.to('cuda')` you call `something.to('ocl:0')` or 
 `something.to('privateuseone:0' for pytorch 1.13)` or another `ocl:1` etc.
+
+IF you want to test whether your OpenCL capable device is better than your CPU, run the provided `IsCPUOrGPUBetter.py`
 
 ## Known Issues
 
 1. Many operators not implemented and there may be fallbacks to CPU. Sometimes it is minor but sometimes it may hamper the performance, some may just fail
 2. When you save/restore the model move it to CPU. Currently there is an issue with loading back saved state dictionary if it was saved from ocl device
+3. Linux wheels may not work. In that case, try to build from source
 
 
 ## `pytorch_ocl` specific API
