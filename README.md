@@ -79,7 +79,7 @@ your devices and their order. On windows systems, use
 Now instead of calling `something.to('cuda')` you call `something.to('ocl:0')` or 
 `something.to('privateuseone:0' for pytorch 1.13)` or another `ocl:1` etc.
 
-IF you want to test whether your OpenCL capable device is better than your CPU, run the provided `IsCPUOrGPUBetter.py`
+If you want to test whether your OpenCL capable device is better than your CPU, run the provided `IsCPUOrGPUBetter.py`
 
 ## Known Issues
 
